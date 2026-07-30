@@ -1,7 +1,28 @@
 aid: microtechmd
-name: microtechmd
-description: microtechmd is a company surfaced as a portfolio company of qiming and added to the API Evangelist
-  network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+accessModel:
+  pricing: unknown
+  onboarding: open
+  trial: false
+  try_now: false
+  public: true
+  label: Open access
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/microtechmd.png
+name: MicroTech Medical
+description: >-
+  MicroTech Medical (Hangzhou) develops user-friendly diabetes glucose
+  monitoring devices — blood glucose monitoring systems (BGMS), the AiDEX
+  continuous glucose monitoring (CGM) system, the Equil patch insulin pump, a
+  closed-loop artificial pancreas, point-of-care testing (POCT), and LinX. Its
+  AiDEX API Platform (aidexapi.microtechmd.com) is a self-service developer
+  portal that registers developers and issues API credentials for accessing
+  blood glucose data resources from AiDEX CGM devices, with separate global and
+  China regional endpoints. The company was surfaced as a portfolio company of
+  Qiming Venture Partners.
 url: https://raw.githubusercontent.com/api-evangelist/microtechmd/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -11,15 +32,66 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-20'
 tags:
 - Company
-apis: []
+- Healthcare
+- Medical Devices
+- Diabetes
+- Glucose Monitoring
+- Continuous Glucose Monitoring
+- Blood Glucose Data
+- API
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+apis:
+- name: AiDEX API Platform
+  description: >-
+    Self-service developer platform for accessing blood glucose data resources
+    from MicroTech Medical's AiDEX continuous glucose monitoring (CGM) devices.
+    Developers register, log in, and are issued API credentials from the
+    console. Global and China regional endpoints are available.
+  humanURL: https://aidexapi.microtechmd.com/home
+  baseURL: https://aidexapi.microtechmd.com/api
+  tags:
+  - CGM
+  - Blood Glucose Data
+  - Healthcare
+  properties:
+  - type: DeveloperPortal
+    url: https://aidexapi.microtechmd.com/home
+  - type: Documentation
+    url: https://aidexapi.microtechmd.com/doc/Overview
+  - type: APIReference
+    url: https://aidexapi.microtechmd.com/userapi
+  - type: SignUp
+    url: https://aidexapi.microtechmd.com/home
+  - type: Authentication
+    url: authentication/microtechmd-authentication.yml
+  - type: Conventions
+    url: conventions/microtechmd-conventions.yml
 common:
+- type: DomainSecurity
+  url: security/microtechmd-domain-security.yml
+- type: DeveloperPortal
+  url: https://aidexapi.microtechmd.com/home
+- type: Documentation
+  url: https://aidexapi.microtechmd.com/doc/Overview
+- type: Support
+  url: https://microtechmd.com/support/contact-us
+- type: HelpCenter
+  url: https://microtechmd.com/support/faq
+- type: Blog
+  url: https://microtechmd.com/about/news
+- type: PrivacyPolicy
+  url: https://microtechmd.com/privacy-policy
 - type: Website
   url: https://microtechmd.com
+x-enrichment:
+  date: '2026-07-20'
+  status: enriched
+  artifacts_added: 3
+  pass: local-v1
