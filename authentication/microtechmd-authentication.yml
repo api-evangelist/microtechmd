@@ -1,0 +1,39 @@
+generated: '2026-07-20'
+method: derived
+source: live extraction of the AiDEX API Platform SPA (https://aidexapi.microtechmd.com
+  app.js) — auth/console endpoints and request headers observed; no OpenAPI published
+api: AiDEX API Platform
+notes: >-
+  The AiDEX API Platform is a self-service developer portal for accessing blood
+  glucose data resources from MicroTech Medical's AiDEX continuous glucose
+  monitoring (CGM) devices. Developers register an account, log in, and are
+  issued API credentials from the console. The console/session itself is guarded
+  by a bearer-style token carried in a "wt-token" request header. No public
+  OpenAPI or OAuth authorization-server metadata is served, so the profile below
+  is derived from observed platform endpoints rather than a machine-readable spec.
+security_schemes:
+- id: developer-api-key
+  type: apiKey
+  in: header
+  description: >-
+    API key/credential issued to a registered developer from the console
+    (retrieved via /api/platform/auth/key). Used to authenticate calls to the
+    AiDEX blood-glucose data API. Exact header/parameter name is not published.
+  evidence: https://aidexapi.microtechmd.com/api/platform/auth/key
+- id: console-session-token
+  type: apiKey
+  in: header
+  scheme_name: wt-token
+  description: >-
+    Bearer-style session token returned by developer login and sent in the
+    "wt-token" header for console management calls (change password, modify
+    developer info, query personal info, logout).
+  evidence: https://aidexapi.microtechmd.com/api/platform/auth/login
+observed_endpoints:
+- POST /api/platform/auth/register   # developer registration
+- POST /api/platform/auth/login      # developer login -> wt-token session
+- GET  /api/platform/auth/key        # retrieve issued API key/credential
+- POST /api/platform/console/changePassword
+- POST /api/platform/console/modifyDevInfo
+- GET  /api/platform/console/queryPersonalInfo
+- POST /api/platform/console/logout

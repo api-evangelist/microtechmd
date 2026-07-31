@@ -1,0 +1,39 @@
+generated: '2026-07-20'
+method: derived
+source: live extraction of the AiDEX API Platform SPA (https://aidexapi.microtechmd.com
+  app.js) — base path, regional hosts, auth flow, and header conventions observed
+api: AiDEX API Platform
+auth:
+  style: api-key
+  detail: >-
+    Register + login on the developer portal to be issued an API key
+    (/api/platform/auth/key). Console/session calls carry a bearer-style token
+    in the "wt-token" header. See authentication/microtechmd-authentication.yml.
+base_path:
+  prefix: /api
+  resource_grouping: >-
+    Platform/console management endpoints live under /api/platform/{auth|console}/*.
+    The blood-glucose data API is documented on the portal under /doc and /userapi.
+regions:
+- name: Global
+  base_url: https://aidexapi.microtechmd.com/api
+  portal: https://aidexapi.microtechmd.com/home
+- name: China
+  base_url: https://aidexapi-cn.microtechmd.com/api
+  portal: https://aidexapi-cn.microtechmd.com/home
+request:
+  content_types:
+  - application/json
+  - multipart/form-data   # used for form-typed requests (observed in SPA client)
+  session_header: wt-token
+documentation:
+  overview: https://aidexapi.microtechmd.com/doc/Overview
+  user_api: https://aidexapi.microtechmd.com/userapi
+  sdk: >-
+    An AiDEX SDK ("aidexsdk") is referenced in the portal (access appears
+    role-gated); distribution channel not publicly confirmed.
+unknowns:
+  - Pagination style not published (no OpenAPI, data API is portal-gated).
+  - Rate-limit signaling not published.
+  - Error-envelope shape not published; no RFC 9457 problem+json observed.
+  - Versioning/idempotency conventions not published.
