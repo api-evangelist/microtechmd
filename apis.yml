@@ -41,6 +41,14 @@ tags:
 - Glucose Monitoring
 - Continuous Glucose Monitoring
 - Blood Glucose Data
+tags_raw:
+- Company
+- Healthcare
+- Medical Devices
+- Diabetes
+- Glucose Monitoring
+- Continuous Glucose Monitoring
+- Blood Glucose Data
 - API
 maintainers:
 - FN: Kin Lane
